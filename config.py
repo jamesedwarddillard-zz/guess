@@ -1,10 +1,10 @@
-from secret import config_secret
+
 
 class Config(object):
     DEBUG = False
     TESTING = False
     CSRF_ENABLED = True
-    SECRET_KEY = config_secret
+    SECRET_KEY = 'to be changed'
 
 
 class ProductionConfig(Config):
