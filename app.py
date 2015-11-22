@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from flask.ext.sqlalchemy import SQLAlchemy
 import os
 
@@ -9,15 +9,14 @@ db = SQLAlchemy(app)
 from models import Result
 
 
-@app.route('/')
-def hello():
-    return "Hello Jimmy!"
+@app.route('/', methods=['GET', 'POST'])
+def index():
+    return render_template('index.html')
 
 @app.route('/<year>/<month>')
 def hello_selected_month(year, month):
 	return "How many jobs were added in {}, {}?".format(month, year)
 
 if __name__ == '__main__':
-	print (os.environ['APP_SETTINGS'])
 	app.run()
     
