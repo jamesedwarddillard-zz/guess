@@ -15,11 +15,15 @@ from models import Result
 def index():
 	entry_list = response_aggregator('#nfpguesses', '')
 	summary = len(entry_list)
-	return render_template('index.html', summary=summary)
+	return render_template('index.html', summary=summary, entry_list=entry_list)
 
 @app.route('/<year>/<month>')
 def hello_selected_month(year, month):
 	return "How many jobs were added in {}, {}?".format(month, year)
+
+@app.route('/about')
+def about():
+	pass
 
 if __name__ == '__main__':
 	app.run()
