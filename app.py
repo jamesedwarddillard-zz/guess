@@ -2,6 +2,7 @@ from flask import Flask, render_template, request
 from flask.ext.sqlalchemy import SQLAlchemy
 import os
 import requests
+from twitter.guestimator import *
 
 app = Flask(__name__)
 app.config.from_object(os.environ['APP_SETTINGS'])
@@ -12,18 +13,9 @@ from models import Result
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-	errors = []
-	results = {}
-	if request.method == 'POST':
-		try:
-			url = request.form['url']
-			r = requests.get(url)
-			print r.text
-		except:
-			errors.append(
-				"Unable to get URL. Please make sure it's valid and try again"
-				)
-	return render_template('index.html', errors=errors, results=results)
+	entry_list = response_aggregator('#nfpguesses', '')
+	summary = len(entry_list)
+	return render_template('index.html', summary=summary)
 
 @app.route('/<year>/<month>')
 def hello_selected_month(year, month):
