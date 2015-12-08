@@ -2,20 +2,24 @@
 current date and time"""
 
 import datetime
-from bls_reader.bls_reader import bls_api_request, bls_post_reader
-from bls_reader.bls_api import bls_api_series_id
+from pytz import timezone
+import pytz
 
+jan_2016 = datetime.datetime(2016, 1, 8, 8, 30, 0)
 
 
 def current_report():
 	#identify the current year
 	year = datetime.datetime.now().year
-
-	#determine the number of reports so far this year by calling the bls api
-	response = bls_api_request(bls_api_series_id, year, year)
-	data = bls_post_reader(response)
-	mos = len(data)
 	
-	return (mos, year)
+	pass
+
+print jan_2016.year
+print jan_2016.month
+print jan_2016.day
+print jan_2016.hour
+print jan_2016.min
+print jan_2016.second
+print jan_2016.tzinfo
 
 
