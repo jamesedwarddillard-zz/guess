@@ -1,3 +1,6 @@
 *.pyc
 secret.py
 twitter_secret.py
+.env
+env
+venv
