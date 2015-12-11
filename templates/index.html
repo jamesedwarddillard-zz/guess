@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>#nfpguesses</title>
-		<meta name="viewport" content="with=device-width, initial-scale=1.0">
-		<link href="netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" media="screen">
-		<style>
-			.container{
-				max-width: 1000px;
-			}
-		</style>
-	</head>
-	<body>
-		<div class="container">
-			<h1>Non Farm Payroll Guesses</h1>
-			{% if summary > 1 %}
-        		<h4>{{ summary }} guesses this month</h4>
-        	{% elif  summary == 1%}
-        		<h4>{{ summary }} guesses</h4>
-        	{% else %}
-        		<h4> No guesses </h4>
-        	{% endif %}
+    <head>
+        <title>#nfpguesses</title>
+        <meta name="viewport" content="with=device-width, initial-scale=1.0">
+        <link href="netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <style>
+            .container{
+                max-width: 1000px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Non Farm Payroll Guesses</h1>
+            {% if summary > 1 %}
+                <h4>{{ summary }} guesses this month</h4>
+            {% elif  summary == 1%}
+                <h4>{{ summary }} guesses</h4>
+            {% else %}
+                <h4> No guesses </h4>
+            {% endif %}
         </div>
         <table class="table table-striped" style="max-width: 800px;">
-        	<thead>
+            <thead>
                   <tr>
                     <th>User</th>
                     <th>Guess</th>
@@ -31,12 +31,12 @@
             </thead>
             {% for entry in entry_list %}
             <tr>
-            	<td>{{ entry.user }}</td>
-            	<td>{{ entry.guess }}</td>
-            	<td>{{ entry.tweet }}</td>
+                <td>{{ entry.user }}</td>
+                <td>{{ entry.guess }}</td>
+                <td>{{ entry.tweet }}</td>
             </tr>
             {% endfor %}
-        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
   </body>
 </html>
